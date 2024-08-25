@@ -1,8 +1,6 @@
 import pandas as pd
 from models import Book
 from app import db
-
-
 def import_books_from_csv(file_path):
     df = pd.read_csv(file_path)
     for index, row in df.iterrows():

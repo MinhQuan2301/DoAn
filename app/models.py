@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime, func, Float
-from app import db
+from app import db, app
 from sqlalchemy.orm import relationship
 import dao
 
@@ -44,4 +44,6 @@ class Rating(db.Model):
 
 
 if __name__ == '__main__':
+    with app.app_context():
+        db.create_all()
     dao.import_books_from_csv('C:/Users/MinhQuan/OneDrive/Desktop/DoAn/app/static/data/Book/xlsx')
